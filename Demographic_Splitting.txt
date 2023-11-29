@@ -1,0 +1,8 @@
+--Demographic splitting
+SELECT
+  JSON_EXTRACT_SCALAR(data, "$.age") AS age,
+  JSON_EXTRACT_SCALAR(data, "$.gender") AS gender,
+  JSON_EXTRACT_SCALAR(data, "$.percentage") AS percentage
+FROM
+  `analytics-tables.META_ADS.GRUNE`,
+  UNNEST([STRUCT(JSON_EXTRACT(demographic_distribution, '$') AS data)])
