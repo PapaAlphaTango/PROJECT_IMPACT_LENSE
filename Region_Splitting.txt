@@ -1,0 +1,6 @@
+SELECT
+  JSON_EXTRACT_SCALAR(data, "$.region") AS region,
+  JSON_EXTRACT_SCALAR(data, "$.percentage") AS percentage
+FROM
+  `analytics-tables.META_ADS.GRUNE`,
+  UNNEST([STRUCT(JSON_EXTRACT(delivery_by_region, '$') AS data)])
