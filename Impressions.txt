@@ -1,0 +1,5 @@
+SELECT
+  REGEXP_EXTRACT(impressions, r'lower_bound: (\d+),') AS lower_bound,
+  REGEXP_EXTRACT(impressions, r'upper_bound: (\d+)') AS upper_bound
+FROM
+  `analytics-tables.META_ADS.GRUNE`;
